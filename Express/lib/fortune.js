@@ -6,10 +6,10 @@ var fortuneCookies = [
     "Whenever possible, keep it simple.",
    ];
    
-   export function getFortune() {
+   exports.getFortune = function() {
     var idx = Math.floor(Math.random() * fortuneCookies.length);
     return fortuneCookies[idx];
-   }
+   };
 
    // the important thing to note here is the use of the global variable exports. If you want
    // something to be visible outside of the module, you have to add it to exports.
