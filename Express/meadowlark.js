@@ -3,17 +3,19 @@ var express = require('express');
 var app = express();
 
 app.set('port' , process.env.PORT || 3000);
+ 
+var fortune = require('../Express/lib/fortune');
 
 app.use(express.static(__dirname + '/public'));
 
-// define an array of fortune cookies
-var fortunes = [
-    "Conquer your fears or they will conquer you.",
-    "Rivers need springs.",
-    "Do not fear what you don't know.",
-    "You will have a pleasant surprise.",
-    "Whenever possible, keep it simple."
-];
+// define an array of fortune cookies exports has been used in this stead
+// var fortunes = [
+//     "Conquer your fears or they will conquer you.",
+//     "Rivers need springs.",
+//     "Do not fear what you don't know.",
+//     "You will have a pleasant surprise.",
+//     "Whenever possible, keep it simple."
+// ];
 // handlebar setup for view engine
 var handlebars = require('express3-handlebars')
     .create({defaultLayout: 'main'});
@@ -27,8 +29,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/about', function(req, res) {
-    var randomFortune = 
-        fortunes[Math.floor(Math.random() * fortunes.length)];
+    // var randomFortune = 
+    //     fortunes[Math.floor(Math.random() * fortunes.length)];
     res.render('about', { fortune: randomFortune });
 })
 // 404 catch all handler(middleware)

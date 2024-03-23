@@ -1,4 +1,7 @@
-<h1>About meadowlark Travels</h1>
-
+<h1>About meadowlark Travels</h1> --}}
+ 
 <p>Yout fortune for the day</p>
 <blockquote>{{fortune}}</blockquote>
+app.get('/about', function(req, res) {
+    res.render('about', {fortune: fortune.getFortune()});
+});
